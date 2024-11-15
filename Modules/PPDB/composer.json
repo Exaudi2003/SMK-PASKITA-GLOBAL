@@ -1,0 +1,23 @@
+{
+    "name": "exaudi/ppdb",
+    "description": "",
+    "authors": [
+        {
+            "name": "Exaudi",
+            "email": "exaudisiregar08@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PPDB\\": ""
+        }
+    }
+}

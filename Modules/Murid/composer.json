@@ -1,0 +1,23 @@
+{
+    "name": "exaudi/murid",
+    "description": "",
+    "authors": [
+        {
+            "name": "exaudi",
+            "email": "exaudi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Murid\\": ""
+        }
+    }
+}
