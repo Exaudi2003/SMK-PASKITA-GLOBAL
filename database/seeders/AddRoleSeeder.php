@@ -14,11 +14,10 @@ class AddRoleSeeder extends Seeder
      */
     public function run()
     {
-        $role = [
+        $roles = [
             [
                 'name'          => 'Perpustakaan',
                 'guard_name'    => 'web'
-
             ],
             [
                 'name'          => 'PPDB',
@@ -26,9 +25,9 @@ class AddRoleSeeder extends Seeder
             ]
         ];
 
-        foreach ($role as $value) {
-            Role::create($value);
-            $this->command->info('Data Role '.$value['name'].' has been saved.');
+        foreach ($roles as $roleData) {
+            $role = Role::firstOrCreate($roleData);
+            $this->command->info('Role "' . $role->name . '" has been created or already exists.');
         }
     }
 }
