@@ -82,8 +82,10 @@ Route::middleware('auth')->group(function () {
             'backend-kategori-berita'   => Backend\Website\KategoriBeritaController::class,
             /// BERITA \\\
             'backend-berita' => Backend\Website\BeritaController::class,
-            /// EKSTRAKULIKULER \\\
+            /// KATEGOTRI EKSTRAKULIKULER \\\
             'category-ekstrakulikuler' => Backend\Website\CategoryEkstrakulikulerController::class,
+            /// EKSTRAKULIKULER \\\
+            'ekstrakulikuler' => Backend\Website\EkstrakulikulerController::class,
             /// EVENT \\\
             'backend-event' => Backend\Website\EventsController::class,
             /// FOOTER \\\

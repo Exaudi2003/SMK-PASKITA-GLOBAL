@@ -125,22 +125,16 @@
                         <span class="menu-title text-truncate" data-i18n="Card">Ekstrakurikuler</span>
                     </a>
                     <ul class="menu-content">
-                        <li class="nav-item {{ request()->is('category-ekstrakulikuler') ? 'active' : '' }}">
-                            <a class="d-flex align-items-center" href=" {{ route('category-ekstrakulikuler.index') }} "><i
-                                    data-feather="circle"></i>
+                        <li class="nav-item {{ request()->is('category-ekstrakulikuler*') ? 'active' : '' }}">
+                            <a class="d-flex align-items-center"
+                                href=" {{ route('category-ekstrakulikuler.index') }} "><i data-feather="circle"></i>
                                 <span class="menu-item text-truncate" data-i18n="Basic">Kategori</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ request()->is('backend-kategori-berita') ? 'active' : '' }}">
-                            <a class="d-flex align-items-center"
-                                href=" {{ route('backend-kategori-berita.index') }} "><i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="Basic">Ekstrakurikuler</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ request()->is('backend-event') ? 'active' : '' }}">
-                            <a class="d-flex align-items-center" href=" {{ route('backend-event.index') }} "><i
+                        <li class="nav-item {{ request()->is('ekstrakulikuler*') ? 'active' : '' }}">
+                            <a class="d-flex align-items-center" href=" {{ route('ekstrakulikuler.index') }} "><i
                                     data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="Basic">Event</span>
+                                <span class="menu-item text-truncate" data-i18n="Basic">List Ekstrakurikuler</span>
                             </a>
                         </li>
                     </ul>

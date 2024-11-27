@@ -21,27 +21,31 @@ class CategoryEkstrakulikulerController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'category_name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'description' => 'required',
-        ]);
+{
+    $request->validate([
+        'category_name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
 
-        try {
-            $imagePath = $request->file('image')->store('category_images', 'public');
+    $data = $request->all();
 
-            CategoryEkstrakulikuler::create([
-                'category_name' => $request->category_name,
-                'image' => $imagePath,
-                'description' => $request->description,
-            ]);
-
-            return redirect()->route('category-ekstrakulikuler.index')->with('success', 'Kategori Ekstrakulikuler berhasil ditambahkan!');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
+    // Simpan file gambar jika ada
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('kategori_ekstrakulikuler', 'public');
     }
+
+    // Simpan data ke model CategoryEkstrakulikuler
+    CategoryEkstrakulikuler::create([
+        'category_name' => $data['category_name'],
+        'description' => $data['description'],
+        'image' => $data['image'] ?? null, // Opsional jika tidak ada gambar
+    ]);
+
+    return redirect()->route('category-ekstrakulikuler.index')
+                     ->with('success', 'Kategori berhasil ditambahkan!');
+}
+
 
 
 
@@ -51,42 +55,40 @@ class CategoryEkstrakulikulerController extends Controller
     }
 
     public function update(Request $request, CategoryEkstrakulikuler $categoryEkstrakulikuler)
-    {
-        $request->validate([
-            'category_name' => 'required|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'description' => 'nullable|string',
+{
+    $request->validate([
+        'category_name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    try {
+        // Menghapus gambar lama jika ada
+        if ($request->hasFile('image')) {
+            if ($categoryEkstrakulikuler->image && Storage::disk('public')->exists($categoryEkstrakulikuler->image)) {
+                Storage::disk('public')->delete($categoryEkstrakulikuler->image);
+            }
+            $imagePath = $request->file('image')->store('kategori_ekstrakulikuler_images', 'public');
+            $categoryEkstrakulikuler->image = $imagePath;
+        }
+
+        // Mengupdate data kategori ekstrakulikuler
+        $categoryEkstrakulikuler->update([
+            'category_name' => $request->category_name,
+            'description' => $request->description,
         ]);
 
-        try {
-            // Update image if a new one is uploaded
-            if ($request->hasFile('image')) {
-                // Delete the old image if it exists
-                if ($categoryEkstrakulikuler->image && Storage::disk('public')->exists($categoryEkstrakulikuler->image)) {
-                    Storage::disk('public')->delete($categoryEkstrakulikuler->image);
-                }
-
-                // Store the new image
-                $imagePath = $request->file('image')->store('category_images', 'public');
-                $categoryEkstrakulikuler->image = $imagePath;
-            }
-
-            // Update other fields
-            $categoryEkstrakulikuler->update([
-                'category_name' => $request->category_name,
-                'description' => $request->description,
-            ]);
-
-            return redirect()->route('category-ekstrakulikuler.index')->with('success', 'Kategori Ekstrakulikuler berhasil diperbarui!');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
+        return redirect()->route('category-ekstrakulikuler.index')->with('success', 'Kategori berhasil diperbarui!');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
     }
+}
+
+
 
 
     public function destroy(CategoryEkstrakulikuler $categoryEkstrakulikuler)
     {
-        // Delete image from storage
         Storage::disk('public')->delete($categoryEkstrakulikuler->image);
 
         $categoryEkstrakulikuler->delete();
