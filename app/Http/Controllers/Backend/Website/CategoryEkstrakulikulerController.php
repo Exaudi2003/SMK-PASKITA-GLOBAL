@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CategoryEkstrakulikuler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryEkstrakulikulerController extends Controller
 {
@@ -90,7 +91,7 @@ class CategoryEkstrakulikulerController extends Controller
     public function destroy(CategoryEkstrakulikuler $categoryEkstrakulikuler)
     {
         Storage::disk('public')->delete($categoryEkstrakulikuler->image);
-
+        Alert::success('Success Title', 'Success Message');
         $categoryEkstrakulikuler->delete();
         return redirect()->route('category-ekstrakulikuler.index')->with('success', 'Kategori Ekstrakulikuler berhasil dihapus!');
     }
