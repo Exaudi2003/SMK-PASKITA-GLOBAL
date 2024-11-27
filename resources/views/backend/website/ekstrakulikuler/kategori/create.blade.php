@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Tambah Berita
+    Tambah Kateogori
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2> Berita</h2>
+                        <h2>Kategori</h2>
                     </div>
                 </div>
             </div>
@@ -35,13 +35,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header header-bottom">
-                            <h4>Tambah Berita</h4>
+                            <h4>Tambah Kategori</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('category-ekstrakulikuler.store') }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
+                                    <!-- Nama Kategori -->
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="basicInput">Nama Kategori</label> <span class="text-danger">*</span>
@@ -56,6 +57,7 @@
                                         </div>
                                     </div>
 
+                                    <!-- Thumbnail -->
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="basicInput">Thumbnail</label>
@@ -69,9 +71,10 @@
                                         </div>
                                     </div>
 
+                                    <!-- Deskripsi -->
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="basicInput">Deskripsi</label> <span class="text-danger">*</span>
+                                            <label for="basicInput">Deskripsi</label>
                                             <textarea name="description" class="form-control @error('description') is-invalid @enderror" cols="30"
                                                 rows="10"></textarea>
                                             @error('description')
@@ -85,7 +88,6 @@
                                 <button class="btn btn-primary" type="submit">Tambah</button>
                                 <a href="{{ route('category-ekstrakulikuler.index') }}" class="btn btn-warning">Batal</a>
                             </form>
-
                         </div>
                     </div>
                 </div>
