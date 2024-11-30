@@ -24,4 +24,10 @@ class Ekstrakulikuler extends Model
     {
         return $this->belongsTo(CategoryEkstrakulikuler::class, 'category_ekstrakulikuler_id', 'id');
     }
+
+    public function galeriEkstrakulikuler()
+{
+    return $this->hasMany(GaleriEkstrakulikuler::class, 'ekstrakulikuler_id');
+}
+
 }

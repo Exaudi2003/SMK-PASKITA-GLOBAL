@@ -27,6 +27,7 @@
 <script src="{{ asset('Assets/Backend/js/scripts/forms/form-select2.js') }}"></script>
 <script src="{{ asset('Assets/Backend/js/scripts/forms/pickers/form-pickers.js') }}"></script>
 <script src="{{ asset('Assets/Backend/js/scripts/components/components-modals.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.x.x/dist/js/bootstrap.bundle.min.js"></script>
 <!-- CDN SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- END: Page JS-->

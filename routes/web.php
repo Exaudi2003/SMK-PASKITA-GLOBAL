@@ -86,6 +86,8 @@ Route::middleware('auth')->group(function () {
             'category-ekstrakulikuler' => Backend\Website\CategoryEkstrakulikulerController::class,
             /// EKSTRAKULIKULER \\\
             'ekstrakulikuler' => Backend\Website\EkstrakulikulerController::class,
+            /// GALERI EKSTRAKULIKULER \\\
+            'galeri-ekstrakulikuler' => Backend\Website\GaleriEkstrakulikulerController::class,
             /// EVENT \\\
             'backend-event' => Backend\Website\EventsController::class,
             /// FOOTER \\\
