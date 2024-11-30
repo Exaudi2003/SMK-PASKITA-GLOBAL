@@ -42,6 +42,15 @@ class EkstrakulikulerController extends Controller
         return redirect()->route('ekstrakulikuler.index')->with('success', 'Ekstrakulikuler berhasil ditambahkan!');
     }
 
+    public function show($id)
+{
+    $ekstrakulikuler = Ekstrakulikuler::with('category')->findOrFail($id);
+    $galeri = $ekstrakulikuler->galeriEkstrakulikuler;
+    return view('backend.website.ekstrakulikuler.show', compact('ekstrakulikuler', 'galeri'));
+}
+
+
+
     public function edit($id)
     {
         $ekstrakulikuler = Ekstrakulikuler::findOrFail($id);

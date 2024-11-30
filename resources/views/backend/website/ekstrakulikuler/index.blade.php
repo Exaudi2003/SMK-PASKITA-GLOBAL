@@ -60,22 +60,21 @@
                                                             </td>
                                                             <td>{{ $ekstrakulikuler->description ?? '-' }}</td>
                                                             <td>
-                                                                <a href="{{ route('ekstrakulikuler.edit', $ekstrakulikuler->id) }}"
-                                                                    class="btn btn-success btn-sm">
+                                                                <a href="{{ route('ekstrakulikuler.show', $ekstrakulikuler->id) }}" class="btn btn-info btn-sm">
+                                                                    Detail
+                                                                </a>
+                                                                <a href="{{ route('ekstrakulikuler.edit', $ekstrakulikuler->id) }}" class="btn btn-success btn-sm">
                                                                     Edit
                                                                 </a>
-                                                                <form
-                                                                    action="{{ route('ekstrakulikuler.destroy', $ekstrakulikuler->id) }}"
-                                                                    method="POST" style="display:inline-block;"
-                                                                    id="delete-form-{{ $ekstrakulikuler->id }}">
+                                                                <form action="{{ route('ekstrakulikuler.destroy', $ekstrakulikuler->id) }}" method="POST" style="display:inline-block;" id="delete-form-{{ $ekstrakulikuler->id }}">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="button" class="btn btn-danger btn-sm"
-                                                                        onclick="confirmDelete({{ $ekstrakulikuler->id }})">
+                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $ekstrakulikuler->id }})">
                                                                         Hapus
                                                                     </button>
                                                                 </form>
                                                             </td>
+
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
