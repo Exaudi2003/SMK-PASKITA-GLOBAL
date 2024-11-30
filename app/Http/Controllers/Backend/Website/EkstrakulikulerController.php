@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Ekstrakulikuler;
 use App\Models\CategoryEkstrakulikuler;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EkstrakulikulerController extends Controller
 {
@@ -37,9 +38,18 @@ class EkstrakulikulerController extends Controller
         }
 
         Ekstrakulikuler::create($data);
-
+        Alert::success('Berhasil', 'Ekstrakulikuler berhasil ditambahkan!');
         return redirect()->route('ekstrakulikuler.index')->with('success', 'Ekstrakulikuler berhasil ditambahkan!');
     }
+
+    public function show($id)
+{
+    $ekstrakulikuler = Ekstrakulikuler::with('category')->findOrFail($id);
+    $galeri = $ekstrakulikuler->galeriEkstrakulikuler;
+    return view('backend.website.ekstrakulikuler.show', compact('ekstrakulikuler', 'galeri'));
+}
+
+
 
     public function edit($id)
     {
@@ -82,7 +92,7 @@ class EkstrakulikulerController extends Controller
         }
 
         $ekstrakulikuler->delete();
-
+        Alert::success('Success', 'Berhasil menghapus Data!');
         return redirect()->route('ekstrakulikuler.index')->with('success', 'Ekstrakulikuler berhasil dihapus!');
     }
 }

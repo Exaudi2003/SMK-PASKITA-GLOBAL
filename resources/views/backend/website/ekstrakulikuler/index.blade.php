@@ -3,20 +3,6 @@
 @section('title', 'Kategori Ekstrakurikuler')
 
 @section('content')
-
-    {{-- Alert Messages --}}
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ $message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @elseif($message = Session::get('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>{{ $message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
     {{-- Content Wrapper --}}
     <div class="content-wrapper container-xxl p-0">
         {{-- Page Header --}}
@@ -74,21 +60,21 @@
                                                             </td>
                                                             <td>{{ $ekstrakulikuler->description ?? '-' }}</td>
                                                             <td>
-                                                                <a href="{{ route('ekstrakulikuler.edit', $ekstrakulikuler->id) }}"
-                                                                    class="btn btn-success btn-sm">
+                                                                <a href="{{ route('ekstrakulikuler.show', $ekstrakulikuler->id) }}" class="btn btn-info btn-sm">
+                                                                    Detail
+                                                                </a>
+                                                                <a href="{{ route('ekstrakulikuler.edit', $ekstrakulikuler->id) }}" class="btn btn-success btn-sm">
                                                                     Edit
                                                                 </a>
-                                                                <form
-                                                                    action="{{ route('ekstrakulikuler.destroy', $ekstrakulikuler->id) }}"
-                                                                    method="POST" style="display:inline-block;">
+                                                                <form action="{{ route('ekstrakulikuler.destroy', $ekstrakulikuler->id) }}" method="POST" style="display:inline-block;" id="delete-form-{{ $ekstrakulikuler->id }}">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
+                                                                    <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $ekstrakulikuler->id }})">
                                                                         Hapus
                                                                     </button>
                                                                 </form>
                                                             </td>
+
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -112,3 +98,25 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: "Apakah Anda yakin?",
+            text: "Data ini akan dihapus dan tidak bisa dikembalikan!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            reverseButtons: true,
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-secondary"
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
+        });
+    }
+</script>

@@ -3,23 +3,7 @@
 @section('title', 'Kategori Ekstrakurikuler')
 
 @section('content')
-
-    {{-- Alert Messages --}}
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ $message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @elseif($message = Session::get('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>{{ $message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    {{-- Content Wrapper --}}
     <div class="content-wrapper container-xxl p-0">
-        {{-- Page Header --}}
         <div class="content-header row">
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
@@ -29,8 +13,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- Main Content --}}
         <div class="content-body">
             <div class="row">
                 <div class="col-12">
@@ -39,7 +21,6 @@
                             @if ($categories->count() > 0)
                                 <div class="col-12">
                                     <div class="card">
-                                        {{-- Card Header --}}
                                         <div class="card-header d-flex justify-content-between align-items-center">
                                             <h4 class="card-title">Daftar Kategori Ekstrakurikuler</h4>
                                             <a href="{{ route('category-ekstrakulikuler.create') }}"
@@ -47,8 +28,6 @@
                                                 Tambah Kategori
                                             </a>
                                         </div>
-
-                                        {{-- Data Table --}}
                                         <div class="card-datatable">
                                             <table class="table table-striped table-bordered dt-responsive nowrap">
                                                 <thead>
@@ -78,11 +57,12 @@
                                                                 </a>
                                                                 <form
                                                                     action="{{ route('category-ekstrakulikuler.destroy', $category->id) }}"
-                                                                    method="POST" style="display:inline-block;">
+                                                                    method="POST" style="display:inline-block;"
+                                                                    id="delete-form-{{ $category->id }}">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
+                                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                                        onclick="confirmDelete({{ $category->id }})">
                                                                         Hapus
                                                                     </button>
                                                                 </form>
@@ -95,7 +75,6 @@
                                     </div>
                                 </div>
                             @else
-                                {{-- No Categories Found --}}
                                 <div class="text-center">
                                     <h3 class="text-muted">Kategori Masih Kosong!</h3>
                                     <a href="{{ route('category-ekstrakulikuler.create') }}" class="btn btn-primary mt-3">
@@ -110,3 +89,25 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: "Apakah Anda yakin?",
+            text: "Data ini akan dihapus dan tidak bisa dikembalikan!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            reverseButtons: true,
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-secondary"
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
+        });
+    }
+</script>
