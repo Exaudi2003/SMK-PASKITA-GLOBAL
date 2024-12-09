@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
             Role::firstOrCreate(['name' => $role]);
         }
 
-        // Data pengguna dengan peran masing-masing
         $users = [
             [
                 'name'      => 'Admin Sekolah',
@@ -49,7 +48,18 @@ class UserSeeder extends Seeder
             ]
         ];
 
-        // Loop untuk membuat data user dan assign role
+        // foreach ($users as $data) {
+        //     $user = User::create([
+        //         'name'      => $data['name'],
+        //         'username'  => $data['username'],
+        //         'email'     => $data['email'],
+        //         'status'    => $data['status'],
+        //         'password'  => $data['password'],
+        //     ]);
+
+        //     $user->assignRole($data['role']);
+        //     $this->command->info('Data User ' . $user->name . ' dengan peran ' . $data['role'] . ' telah dibuat.');
+        // }
         foreach ($users as $data) {
             $user = User::create([
                 'name'      => $data['name'],
@@ -59,9 +69,17 @@ class UserSeeder extends Seeder
                 'password'  => $data['password'],
             ]);
 
-            // Assign peran ke user
-            $user->assignRole($data['role']);
+            // Pastikan role sudah ada dan sudah terassign
+            $role = Role::where('name', $data['role'])->first();
+            if ($role) {
+                $user->assignRole($role);
+                $this->command->info('Role "' . $role->name . '" assigned to user "' . $user->name . '"');
+            } else {
+                $this->command->info('Role "' . $data['role'] . '" not found for user "' . $user->name . '"');
+            }
+
             $this->command->info('Data User ' . $user->name . ' dengan peran ' . $data['role'] . ' telah dibuat.');
         }
+
     }
 }
