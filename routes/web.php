@@ -38,6 +38,10 @@ Route::get('berita/{slug}', [App\Http\Controllers\Frontend\IndexController::clas
 Route::get('event/{slug}', [App\Http\Controllers\Frontend\IndexController::class, 'detailEvent'])->name('detail.event');
 Route::get('event', [App\Http\Controllers\Frontend\IndexController::class, 'events'])->name('event');
 
+Route::get('/alumni-smk-paskita-global', [App\Http\Controllers\Frontend\AlumniController::class, 'index'])->name('alumni.index');
+Route::get('register-alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'create'])->name('alumni.register');
+Route::post('alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'store'])->name('alumni.store');
+
 Auth::routes(['register' => false]);
 
 

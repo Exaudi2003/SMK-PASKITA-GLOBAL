@@ -14,11 +14,13 @@
 </head>
 
 <body>
+
     <!-- Preloader Start Here -->
     <div id="preloader"></div>
     <!-- Preloader End Here -->
     <!-- Main Body Area Start Here -->
     <div id="wrapper">
+        @include('sweetalert::alert')
         @yield('content')
         <!-- Header Area Start Here -->
         <header>
@@ -31,7 +33,7 @@
             @yield('slider')
         </div>
         <!-- Slider 1 Area End Here -->
-        
+
         <!-- About 1 Area Start Here -->
             @yield('about')
         <!-- About 1 Area End Here -->
@@ -47,7 +49,7 @@
         <!-- News and Event Area Start Here -->
             @yield('beritaEvent')
         <!-- News and Event Area End Here -->
-        
+
         <!-- Footer Area Start Here -->
         <footer>
             @include('frontend.content.footer')
