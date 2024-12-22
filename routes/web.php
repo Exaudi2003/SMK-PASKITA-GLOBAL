@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
             /// EKSTRAKULIKULER \\\
             'ekstrakulikuler' => Backend\Website\EkstrakulikulerController::class,
             /// GALERI EKSTRAKULIKULER \\\
+            'backend-pengguna-pengajar' => Backend\Pengguna\PengajarController::class,
             'galeri-ekstrakulikuler' => Backend\Website\GaleriEkstrakulikulerController::class,
             /// EVENT \\\
             'backend-event' => Backend\Website\EventsController::class,
