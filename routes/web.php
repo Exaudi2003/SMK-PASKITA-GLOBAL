@@ -39,8 +39,8 @@ Route::get('event/{slug}', [App\Http\Controllers\Frontend\IndexController::class
 Route::get('event', [App\Http\Controllers\Frontend\IndexController::class, 'events'])->name('event');
 
 Route::get('/alumni-smk-paskita-global', [App\Http\Controllers\Frontend\AlumniController::class, 'index'])->name('alumni.index');
-Route::get('register-alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'create'])->name('alumni.register');
-Route::post('alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'store'])->name('alumni.store');
+Route::get('/register-alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'create'])->name('alumni.register');
+Route::post('/alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'store'])->name('alumni.store');
 
 Auth::routes(['register' => false]);
 
@@ -80,6 +80,8 @@ Route::middleware('auth')->group(function () {
             'backend-imageslider' => Backend\Website\ImageSliderController::class,
             /// ABOUT \\\
             'backend-about' => Backend\Website\AboutController::class,
+            /// ALUMNI \\\
+            'backend-alumni' => Backend\Website\AlumniController::class,
             /// VIDEO \\\
             'backend-video' => Backend\Website\VideoController::class,
             /// KATEGORI BERITA \\\

@@ -89,8 +89,13 @@
                                             class="menu-item text-truncate" data-i18n="Third Level">Visi dan
                                             Misi</span></a>
                                 </li>
-
                             </ul>
+                        </li>
+                        <li class="nav-item {{ request()->is('backend-alumni') ? 'active' : '' }}">
+                            <a class="d-flex align-items-center" href=" {{ route('backend-alumni.index') }} "><i
+                                    data-feather="circle"></i>
+                                <span class="menu-item text-truncate" data-i18n="Basic">Alumni</span>
+                            </a>
                         </li>
                     </ul>
                 </li>

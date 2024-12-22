@@ -46,7 +46,7 @@
                                         </tr>
                                         <tr>
                                             <th>Deskripsi</th>
-                                            <td>{{ $ekstrakulikuler->description ?? 'Tidak ada deskripsi' }}</td>
+                                            <td>{!! $ekstrakulikuler->description ?? 'Tidak ada deskripsi' !!}</td>
                                         </tr>
                                     </table>
                                 </div>

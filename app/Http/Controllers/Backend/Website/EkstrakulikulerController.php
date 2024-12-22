@@ -79,7 +79,7 @@ class EkstrakulikulerController extends Controller
         }
 
         $ekstrakulikuler->update($data);
-
+        Alert::success('Berhasil', 'Ekstrakulikuler berhasil diedit!');
         return redirect()->route('ekstrakulikuler.index')->with('success', 'Ekstrakulikuler berhasil diperbarui!');
     }
 

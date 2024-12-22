@@ -84,7 +84,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div>
-                                    <h2 class="font-weight-bolder mb-0">{{$alumni}}</h2>
+                                    <h2 class="font-weight-bolder mb-0">{{$alumnis}}</h2>
                                     <p class="card-text">Alumni</p>
                                 </div>
                                 <div class="avatar bg-light-success p-50 m-0">

@@ -34,18 +34,21 @@
                             <h4 class="card-title">Form Tambah Ekstrakulikuler</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('ekstrakulikuler.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('ekstrakulikuler.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     {{-- Nama Kategori --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="category_name">Nama Kategori <span class="text-danger">*</span></label>
+                                            <label for="category_name">Nama Kategori <span
+                                                    class="text-danger">*</span></label>
                                             <select name="category_ekstrakulikuler_id"
                                                 class="form-control @error('category_ekstrakulikuler_id') is-invalid @enderror">
                                                 <option value="">-- Pilih Kategori --</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                                    <option value="{{ $category->id }}">{{ $category->category_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                             @error('category_ekstrakulikuler_id')
@@ -59,9 +62,9 @@
                                     {{-- Nama Ekstrakulikuler --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name">Nama Ekstrakulikuler <span class="text-danger">*</span></label>
-                                            <input type="text"
-                                                name="name"
+                                            <label for="name">Nama Ekstrakulikuler <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror"
                                                 placeholder="Nama Ekstrakulikuler">
                                             @error('name')
@@ -76,8 +79,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="image">Thumbnail</label>
-                                            <input type="file"
-                                                name="image"
+                                            <input type="file" name="image"
                                                 class="form-control @error('image') is-invalid @enderror">
                                             @error('image')
                                                 <div class="invalid-feedback">
@@ -91,8 +93,9 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description">Deskripsi</label>
-                                            <textarea name="description"
-                                                class="form-control @error('description') is-invalid @enderror"
+                                            {{-- <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4"
+                                                placeholder="Deskripsi Ekstrakulikuler"></textarea> --}}
+                                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                                                 rows="4" placeholder="Deskripsi Ekstrakulikuler"></textarea>
                                             @error('description')
                                                 <div class="invalid-feedback">
@@ -115,3 +118,13 @@
         </div>
     </div>
 @endsection
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'), {
+            toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

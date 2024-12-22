@@ -81,20 +81,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="description">Deskripsi</label>
-                                            <textarea name="description" id="description" rows="5"
-                                                class="form-control @error('description') is-invalid @enderror">{{ old('description', $ekstrakulikuler->description) }}</textarea>
-                                            @error('description')
-                                                <div class="invalid-feedback">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="image">Thumbnail</label>
@@ -116,6 +102,21 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="description">Deskripsi</label>
+                                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
+                                                rows="5" placeholder="Deskripsi Ekstrakulikuler">{!! old('description', $ekstrakulikuler->description) !!}</textarea>
+                                            @error('description')
+                                                <div class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
                                 </div>
 
                                 <button class="btn btn-primary" type="submit">Update</button>

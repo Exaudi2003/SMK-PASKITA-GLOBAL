@@ -42,7 +42,6 @@
                                                         <th>Nama Ekstrakulikuler</th>
                                                         <th>Kategori</th>
                                                         <th>Thumbnail</th>
-                                                        <th>Deskripsi</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -58,7 +57,6 @@
                                                                     alt="Thumbnail" class="img-fluid rounded"
                                                                     style="max-width: 50px; max-height: 50px;">
                                                             </td>
-                                                            <td>{{ $ekstrakulikuler->description ?? '-' }}</td>
                                                             <td>
                                                                 <a href="{{ route('ekstrakulikuler.show', $ekstrakulikuler->id) }}" class="btn btn-info btn-sm">
                                                                     Detail

@@ -31,6 +31,17 @@
 <!-- CDN SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- END: Page JS-->
+<!-- Tambahkan di dalam <head> layout -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    // Inisialisasi CKEditor pada textarea dengan id 'description'
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 <script>
     $(window).on('load', function() {
