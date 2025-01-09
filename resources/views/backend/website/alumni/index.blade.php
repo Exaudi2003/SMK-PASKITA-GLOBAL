@@ -5,32 +5,10 @@
 @endsection
 
 @section('content')
+    <!-- Bagian alert tetap sama -->
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
-            <div class="alert-body">
-                <strong>{{ $message }}</strong>
-                <button type="button" class="close" data-dismiss="alert">×</button>
-            </div>
-        </div>
-    @elseif($message = Session::get('error'))
-        <div class="alert alert-danger" role="alert">
-            <div class="alert-body">
-                <strong>{{ $message }}</strong>
-                <button type="button" class="close" data-dismiss="alert">×</button>
-            </div>
-        </div>
-    @endif
     <div class="content-wrapper container-xxl p-0">
-        <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
-                <div class="row breadcrumbs-top text-center">
-                    <div class="col-12">
-                        <h2>Data Alumini SMK Paskita Globall</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Header tetap sama -->
         <div class="content-body">
             <div class="row">
                 <div class="col-12">
@@ -53,7 +31,7 @@
                                                         <th>Angkatan</th>
                                                         <th>Jurusan</th>
                                                         <th>Nomor HP</th>
-                                                        <th>Action</th>
+                                                        <th>Social Media</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -63,17 +41,41 @@
                                                             <td> {{ $key + 1 }} </td>
                                                             <td> {{ $alumni->nama_lengkap }} </td>
                                                             <td>
-                                                                <img src="{{ asset('storage/images/berita/' . $alumni->photo) }}"
+                                                                <img src="{{ asset('storage/' . $alumni->photo) }}"
                                                                     class="img-responsive"
-                                                                    style="max-width: 50px; max-height: 50px">
-
+                                                                    style="max-width: 100px; max-height: 100px">
                                                             </td>
                                                             <td> {{ $alumni->angkatan }} </td>
                                                             <td> {{ $alumni->jurusan->nama }} </td>
                                                             <td> {{ $alumni->nomor_hp }} </td>
                                                             <td>
-                                                                <a href=" {{ route('backend-alumni.show', $alumni->id) }} "
-                                                                    class="btn btn-success btn-sm">Detail</a>
+                                                                <div class="d-flex gap-1">
+                                                                    @if ($alumni->instagram)
+                                                                        <a href="https://instagram.com/{{ $alumni->instagram }}"
+                                                                            target="_blank"
+                                                                            class="btn btn-sm btn-icon btn-instagram"
+                                                                            data-toggle="tooltip" title="Instagram">
+                                                                            <i class="fab fa-instagram"></i>
+                                                                        </a>
+                                                                    @endif
+
+                                                                    @if ($alumni->facebook)
+                                                                        <a href="{{ $alumni->facebook }}" target="_blank"
+                                                                            class="btn btn-sm btn-icon btn-facebook"
+                                                                            data-toggle="tooltip" title="Facebook">
+                                                                            <i class="fab fa-facebook-f"></i>
+                                                                        </a>
+                                                                    @endif
+
+                                                                    @if ($alumni->nomor_hp)
+                                                                        <a href="https://wa.me/{{ str_replace(['-', ' '], '', $alumni->nomor_hp) }}"
+                                                                            target="_blank"
+                                                                            class="btn btn-sm btn-icon btn-success"
+                                                                            data-toggle="tooltip" title="WhatsApp">
+                                                                            <i class="fab fa-whatsapp"></i>
+                                                                        </a>
+                                                                    @endif
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -92,3 +94,49 @@
         </div>
     </div>
 @endsection
+<!-- Font Awesome 5 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+@push('css')
+    <style>
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-instagram {
+            background: #E1306C;
+            color: white;
+        }
+
+        .btn-instagram:hover {
+            background: #c13584;
+            color: white;
+        }
+
+        .btn-facebook {
+            background: #4267B2;
+            color: white;
+        }
+
+        .btn-facebook:hover {
+            background: #385898;
+            color: white;
+        }
+
+        .gap-1 {
+            gap: 0.25rem;
+        }
+    </style>
+@endpush
+
+@push('js')
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+@endpush

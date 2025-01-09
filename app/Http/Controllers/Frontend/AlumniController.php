@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Alumni;
 use App\Models\Jurusan;
 use App\Models\Kegiatan;
+use Illuminate\Http\Request;
+use App\Models\Ekstrakulikuler;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AlumniController extends Controller
@@ -16,6 +17,7 @@ class AlumniController extends Controller
     {
         $jurusanM = Jurusan::where('is_active', '0')->get();
         $kegiatanM = Kegiatan::where('is_active', '0')->get();
+        $ekstrakulikulerM = Ekstrakulikuler::orderBy('created_at', 'desc')->get();
         if ($request->has('jurusan_id') && $request->jurusan_id != '') {
             $alumnis = Alumni::where('jurusan_id', $request->jurusan_id)->get();
         } else {
@@ -25,6 +27,7 @@ class AlumniController extends Controller
             'alumnis' => $alumnis,
             'jurusanM' => $jurusanM,
             'kegiatanM' => $kegiatanM,
+            'ekstrakulikulerM' => $ekstrakulikulerM
         ]);
     }
 
@@ -32,9 +35,11 @@ class AlumniController extends Controller
     {
         $jurusanM = Jurusan::where('is_active', '0')->get();
         $kegiatanM = Kegiatan::where('is_active', '0')->get();
+        $ekstrakulikulerM = Ekstrakulikuler::orderBy('created_at', 'desc')->get();
         return view('frontend.content.alumni.register-alumni',[
             'jurusanM' => $jurusanM,
-            'kegiatanM' => $kegiatanM
+            'kegiatanM' => $kegiatanM,
+            'ekstrakulikulerM' => $ekstrakulikulerM
         ]);
     }
 
