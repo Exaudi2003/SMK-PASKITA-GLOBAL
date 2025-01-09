@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 // ======= FRONTEND ======= \\
 
-Route::get('/', 'Frontend\IndexController@index');
+Route::get('/', 'Frontend\IndexController@index')->name('beranda');
 
 ///// MENU \\\\\
 //// PROFILE SEKOLAH \\\\
@@ -37,6 +37,8 @@ Route::get('berita/{slug}', [App\Http\Controllers\Frontend\IndexController::clas
 /// EVENT \\\
 Route::get('event/{slug}', [App\Http\Controllers\Frontend\IndexController::class, 'detailEvent'])->name('detail.event');
 Route::get('event', [App\Http\Controllers\Frontend\IndexController::class, 'events'])->name('event');
+
+Route::get('detail-ekstrakulikuler/{id}', [App\Http\Controllers\Frontend\IndexController::class, 'detailEkstrakulikuler'])->name('detail.ekstrakulikuler');
 
 Route::get('/alumni-smk-paskita-global', [App\Http\Controllers\Frontend\AlumniController::class, 'index'])->name('alumni.index');
 Route::get('/register-alumni', [App\Http\Controllers\Frontend\AlumniController::class, 'create'])->name('alumni.register');
@@ -94,6 +96,7 @@ Route::middleware('auth')->group(function () {
             'ekstrakulikuler' => Backend\Website\EkstrakulikulerController::class,
             /// GALERI EKSTRAKULIKULER \\\
             'backend-pengguna-pengajar' => Backend\Pengguna\PengajarController::class,
+            /// GALERI EKSTRAKULIKULER \\\
             'galeri-ekstrakulikuler' => Backend\Website\GaleriEkstrakulikulerController::class,
             /// EVENT \\\
             'backend-event' => Backend\Website\EventsController::class,
