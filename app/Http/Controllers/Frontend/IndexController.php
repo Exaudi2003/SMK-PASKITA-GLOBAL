@@ -60,6 +60,7 @@ class IndexController extends Controller
         // Menu
         $jurusanM = Jurusan::where('is_active', '0')->get();
         $kegiatanM = Kegiatan::where('is_active', '0')->get();
+        $ekstrakulikulerM = Ekstrakulikuler::orderBy('created_at', 'desc')->get();
 
         // Footer
         $footer = Footer::first();
@@ -70,7 +71,7 @@ class IndexController extends Controller
         // Berita
         $berita = Berita::where('is_active', '0')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('frontend.content.beritaAll', compact('berita', 'kategori', 'jurusanM', 'kegiatanM', 'footer'));
+        return view('frontend.content.beritaAll', compact('berita', 'kategori', 'ekstrakulikulerM', 'jurusanM', 'kegiatanM', 'footer'));
     }
     // Show Detail Berita
     public function detailBerita($slug)
@@ -78,6 +79,7 @@ class IndexController extends Controller
         // Menu
         $jurusanM = Jurusan::where('is_active', '0')->get();
         $kegiatanM = Kegiatan::where('is_active', '0')->get();
+        $ekstrakulikulerM = Ekstrakulikuler::get();
 
         // Footer
         $footer = Footer::first();
@@ -89,7 +91,7 @@ class IndexController extends Controller
         $beritaOther = Berita::where('is_active', '0')->orderBy('created_at', 'desc')->get();
 
         $berita = Berita::where('slug', $slug)->first();
-        return view('frontend.content.showBerita', compact('berita', 'kategori', 'beritaOther', 'jurusanM', 'kegiatanM', 'footer'));
+        return view('frontend.content.showBerita', compact('berita', 'kategori', 'ekstrakulikulerM', 'beritaOther', 'jurusanM', 'kegiatanM', 'footer'));
     }
 
 
@@ -151,12 +153,12 @@ class IndexController extends Controller
 
         // Pengajar
         $pengajar = User::with('userDetail')->where('status', 'Aktif')->where('role', 'Guru')->get();
-
+        $ekstrakulikulerM = Ekstrakulikuler::get();
         // Footer
         $footer = Footer::first();
 
         $profile = ProfileSekolah::first();
-        return view('frontend.content.profileSekolah', compact('profile', 'jurusanM', 'kegiatanM', 'pengajar', 'footer'));
+        return view('frontend.content.profileSekolah', compact('profile', 'ekstrakulikulerM', 'jurusanM', 'kegiatanM', 'pengajar', 'footer'));
     }
 
     // Visi dan Misi
@@ -167,11 +169,12 @@ class IndexController extends Controller
 
         // Pengajar
         $pengajar = User::with('userDetail')->where('status', 'Aktif')->where('role', 'Guru')->get();
+        $ekstrakulikulerM = Ekstrakulikuler::get();
 
         // Footer
         $footer = Footer::first();
 
         $visimisi = Visimisi::first();
-        return view('frontend.content.visimisi', compact('visimisi', 'jurusanM', 'kegiatanM', 'pengajar', 'footer'));
+        return view('frontend.content.visimisi', compact('visimisi', 'ekstrakulikulerM', 'jurusanM', 'kegiatanM', 'pengajar', 'footer'));
     }
 }

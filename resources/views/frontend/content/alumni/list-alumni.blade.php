@@ -29,27 +29,31 @@
             <!-- Alumni List -->
             <div class="row featuredContainer">
                 @foreach ($alumnis as $alumni)
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 {{ $alumni->jurusan->slug }}">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 {{ $alumni->jurusan->slug }}">
                         <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#">
-                                    <img class="img-fluid"
-                                        src="{{ $alumni->photo ? asset('storage/' . $alumni->photo) : asset('images/default-image.jpg') }}"
-                                        alt="team">
-                                </a>
+                            <div class="lecturers1-item-wrapper">
+                                <div class="lecturers-img-wrapper">
+                                    <a href="#">
+                                        <img class="img-responsive" src="{{ $alumni->photo ? asset('storage/' . $alumni->photo) : asset('images/default-image.jpg') }}" alt="team">
+                                    </a>
+                                </div>
                                 <div class="lecturers-content-wrapper">
-                                    <h3><a href="#">{{ $alumni->nama_lengkap }}</a></h3>
-                                    <span>{{ $alumni->jurusan->name }}</span>
-                                    <p>{{ $alumni->status }}</p>
+                                    <h3 class="item-title">
+                                        <a href="#">{{ $alumni->nama_lengkap }}</a>
+                                    </h3>
+                                    <span class="item-designation">{{ $alumni->jurusan->name }}</span>
                                     <ul class="lecturers-social">
                                         @if ($alumni->instagram)
                                             <li><a href="{{ $alumni->instagram }}"><i class="fa fa-instagram"></i></a></li>
                                         @endif
                                         @if ($alumni->linkedin)
-                                            <li><a href="{{ $alumni->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="{{ $alumni->linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        @endif
+                                        @if ($alumni->twitter)
+                                            <li><a href="{{ $alumni->twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                         @endif
                                         @if ($alumni->facebook)
-                                            <li><a href="{{ $alumni->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="{{ $alumni->facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         @endif
                                     </ul>
                                 </div>

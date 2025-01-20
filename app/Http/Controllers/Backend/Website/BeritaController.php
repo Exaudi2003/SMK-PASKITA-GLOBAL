@@ -62,7 +62,7 @@ class BeritaController extends Controller
             $berita = new Berita;
             $berita->title          = $request->title;
             $berita->slug           = $slug;
-            $berita->content        = $request->content;    
+            $berita->content        = $request->content;
             $berita->kategori_id    = $request->kategori_id;
             $berita->thumbnail      = $nama_image;
             $berita->created_by     = Auth::id();
@@ -123,7 +123,7 @@ class BeritaController extends Controller
             $berita = Berita::find($id);
             $berita->title          = $request->title;
             $berita->slug           = $berita->slug;
-            $berita->content        = $request->content;    
+            $berita->content        = $request->content;
             $berita->kategori_id    = $request->kategori_id;
             $berita->thumbnail      = $nama_image ?? $berita->thumbnail;
             $berita->is_active      = $request->is_active;
