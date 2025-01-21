@@ -86,9 +86,9 @@
                             <li><a href="#">Lainnya</a>
                                 <ul>
                                     <li><a href=" {{ url('murid/perpustakaan') }} ">Perpustakaan</a></li>
+                                    <li><a href="{{ route('galeri') }}">Galeri Sekolah</a></li>
                                     <li class="has-child-menu"><a href="#">Alumni</a>
                                         <ul class="thired-level">
-
                                             <li><a href="{{ route('alumni.index') }}">Data Alumni</a></li>
                                             <li><a href="{{ route('alumni.register') }}">Registrasi Alumni</a></li>
                                         </ul>

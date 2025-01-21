@@ -24,6 +24,7 @@ Route::get('profile-sekolah', [App\Http\Controllers\Frontend\IndexController::cl
 
 //// VISI dan MISI
 Route::get('visi-dan-misi', [App\Http\Controllers\Frontend\IndexController::class, 'visimisi'])->name('visimisi.sekolah');
+Route::get('galeri', [App\Http\Controllers\Frontend\IndexController::class, 'galeriSekolah'])->name('galeri');
 
 //// PROGRAM STUDI \\\\
 Route::get('program/{slug}', [App\Http\Controllers\Frontend\MenuController::class, 'programStudi']);
