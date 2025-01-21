@@ -98,6 +98,8 @@ Route::middleware('auth')->group(function () {
             'backend-pengguna-pengajar' => Backend\Pengguna\PengajarController::class,
             /// GALERI EKSTRAKULIKULER \\\
             'galeri-ekstrakulikuler' => Backend\Website\GaleriEkstrakulikulerController::class,
+            /// GALERI  \\\
+            'galeri-sekolah' => Backend\Website\GaleriController::class,
             /// EVENT \\\
             'backend-event' => Backend\Website\EventsController::class,
             /// FOOTER \\\

@@ -12,7 +12,6 @@ class GaleriEkstrakulikulerController extends Controller
 {
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'ekstrakulikuler_id' => 'required|exists:ekstrakulikuler,id',
             'path' => 'required|file|mimes:jpeg,png,jpg,mp4|max:2048',
