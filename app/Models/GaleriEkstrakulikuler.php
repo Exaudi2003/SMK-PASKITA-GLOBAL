@@ -16,7 +16,6 @@ class GaleriEkstrakulikuler extends Model
         'path',
     ];
 
-    // Relasi dengan model Ekstrakulikuler
     public function ekstrakulikuler()
     {
         return $this->belongsTo(Ekstrakulikuler::class, 'ekstrakulikuler_id');

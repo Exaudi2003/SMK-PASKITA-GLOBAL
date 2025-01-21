@@ -97,6 +97,12 @@
                                 <span class="menu-item text-truncate" data-i18n="Basic">Alumni</span>
                             </a>
                         </li>
+                        <li class="nav-item {{ request()->is('galeri-sekolahs') ? 'active' : '' }}">
+                            <a class="d-flex align-items-center" href=" {{ route('galeri-sekolah.index') }} "><i
+                                    data-feather="circle"></i>
+                                <span class="menu-item text-truncate" data-i18n="Basic">Galeri Sekolah</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class=" nav-item">
@@ -175,7 +181,6 @@
                                 <span class="menu-item text-truncate" data-i18n="Basic">Footer</span>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
