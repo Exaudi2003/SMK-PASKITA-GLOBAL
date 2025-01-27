@@ -34,13 +34,17 @@
 <!-- Tambahkan di dalam <head> layout -->
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
+<!-- Replace the specific initialization script with this -->
 <script>
-    // Inisialisasi CKEditor pada textarea dengan id 'description'
-    ClassicEditor
-        .create(document.querySelector('#description'))
-        .catch(error => {
-            console.error(error);
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.ckeditor').forEach(function(element) {
+            ClassicEditor
+                .create(element)
+                .catch(error => {
+                    console.error(error);
+                });
         });
+    });
 </script>
 
 <script>

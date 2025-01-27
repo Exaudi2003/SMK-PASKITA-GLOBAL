@@ -93,9 +93,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description">Deskripsi</label>
-                                            {{-- <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4"
-                                                placeholder="Deskripsi Ekstrakulikuler"></textarea> --}}
-                                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
+                                            <textarea name="description" id="description" class="form-control ckeditor @error('description') is-invalid @enderror"
                                                 rows="4" placeholder="Deskripsi Ekstrakulikuler"></textarea>
                                             @error('description')
                                                 <div class="invalid-feedback">
@@ -118,13 +116,3 @@
         </div>
     </div>
 @endsection
-
-<script>
-    ClassicEditor
-        .create(document.querySelector('#description'), {
-            toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>

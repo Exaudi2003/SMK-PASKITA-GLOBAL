@@ -35,8 +35,16 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 text-center">
-                        <p class="text-muted">Belum ada gambar di galeri.</p>
+                    <div class="error-page-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="error-bottom">
+                                        <h2>Sorry!!! Data yang anda cari Belum ada</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 @endforelse
             </div>
