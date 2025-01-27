@@ -150,7 +150,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 <button class="btn btn-primary" type="submit">Update</button>
                                                 <a href="{{ route('backend-profile-sekolah.index') }}"

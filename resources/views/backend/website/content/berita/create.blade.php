@@ -84,7 +84,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="basicInput">Content</label> <span class="text-danger">*</span>
-                                        <textarea name="content" class="form-control  @error('content') is-invalid @enderror" cols="30" rows="10"></textarea>
+                                        <textarea name="content" class="form-control ckeditor  @error('content') is-invalid @enderror" cols="30" rows="10"></textarea>
                                         @error('content')
                                             <div class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
@@ -92,7 +92,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                              
+
                             </div>
                             <button class="btn btn-primary" type="submit">Tambah</button>
                             <a href="{{route('backend-berita.index')}}" class="btn btn-warning">Batal</a>
