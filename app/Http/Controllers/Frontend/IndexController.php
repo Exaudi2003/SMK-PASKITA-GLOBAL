@@ -71,9 +71,9 @@ class IndexController extends Controller
         $kegiatanM = Kegiatan::where('is_active', '0')->get();
         $footer = Footer::first();
         $berita = Berita::where('is_active', '0')->orderBy('created_at', 'desc')->get();
-
+        $ekstrakulikulerM = Ekstrakulikuler::orderBy('created_at', 'desc')->get();
         $event = Events::where('is_active', '0')->orderBy('created_at', 'desc')->get();
-        return view('frontend.content.event.eventAll', compact('event', 'berita', 'jurusanM', 'kegiatanM', 'footer'));
+        return view('frontend.content.event.eventAll', compact('event', 'berita', 'jurusanM','ekstrakulikulerM', 'kegiatanM', 'footer'));
     }
 
     public function detailEvent($slug)
@@ -83,8 +83,9 @@ class IndexController extends Controller
         $footer = Footer::first();
         $berita = Berita::where('is_active', '0')->orderBy('created_at', 'desc')->get();
         $event = Events::where('slug', $slug)->first();
+        $ekstrakulikulerM = Ekstrakulikuler::orderBy('created_at', 'desc')->get();
         $eventOther = Events::where('is_active', '0')->orderBy('created_at', 'desc')->get();
-        return view('frontend.content.event.detailEvent', compact('event', 'eventOther', 'berita', 'jurusanM', 'kegiatanM', 'footer'));
+        return view('frontend.content.event.detailEvent', compact('event', 'eventOther', 'berita', 'jurusanM','ekstrakulikulerM', 'kegiatanM', 'footer'));
     }
 
     public function detailEkstrakulikuler($id)
