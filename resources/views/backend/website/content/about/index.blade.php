@@ -51,14 +51,14 @@
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
-                                        </thead>    
+                                        </thead>
                                         <tbody>
                                             @foreach ($about as $key => $abouts)
                                                 <tr>
                                                     <td></td>
                                                     <td> {{$key+1}} </td>
-                                                    <td> 
-                                                        <img src="{{asset('storage/images/about/' .$abouts->image)}}" class="img-responsive" style="max-width: 50px; max-height:50px"> 
+                                                    <td>
+                                                        <img src="{{asset('storage/images/about/' .$abouts->image)}}" class="img-responsive" style="max-width: 50px; max-height:50px">
                                                     </td>
                                                     <td> {{$abouts->is_active == '0' ? 'Aktif' : 'Tidak Aktif'}} </td>
                                                     <td>
@@ -66,7 +66,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        </tbody>                                   
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="basicInput">Description</label> <span class="text-danger">*</span>
-                                                    <textarea name="desc" class="form-control  @error('desc') is-invalid @enderror" rows="5"></textarea>
+                                                    <textarea name="desc" class="form-control ckeditor  @error('desc') is-invalid @enderror" rows="5"></textarea>
                                                     @error('desc')
                                                         <div class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                          
+
                                         </div>
                                         <button class="btn btn-primary" type="submit">Tambah</button>
                                         <a href="{{route('backend-about.index')}}" class="btn btn-warning">Batal</a>`
