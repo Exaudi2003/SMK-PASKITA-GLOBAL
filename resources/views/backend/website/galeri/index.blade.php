@@ -44,8 +44,7 @@
                                         @endif
 
                                         <div class="card-body text-center">
-                                            <form action="{{ route('galeri-ekstrakulikuler.destroy', $item->id) }}"
-                                                method="POST">
+                                            <form action="{{ route('galeri-sekolah.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

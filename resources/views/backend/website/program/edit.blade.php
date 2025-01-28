@@ -38,7 +38,7 @@
                             <h4>Edit Program Studi</h4>
                         </div>
                         <div class="card-body">
-                            <form action=" {{ route('program-studi.update', $jurusan->id) }} " method="post">
+                            <form action=" {{ route('program-studi.update', $jurusan->id) }} " method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
