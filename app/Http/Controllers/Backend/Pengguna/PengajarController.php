@@ -20,7 +20,7 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = User::with('userDetail')->where('role','Pengajar')->get();
+        $pengajar = User::with('userDetail')->where('role','Guru')->get();
         return view('backend.pengguna.pengajar.index', compact('pengajar'));
     }
 
@@ -59,7 +59,7 @@ class PengajarController extends Controller
             $user->name             = $request->name;
             $user->email            = $request->email;
             $user->username         = strtolower($username).date("s");
-            $user->role             = 'Pengajar';
+            $user->role             = 'Guru';
             $user->status           = 'Aktif';
             $user->foto_profile     = $nama_img;
             $user->password         = bcrypt('12345678');
