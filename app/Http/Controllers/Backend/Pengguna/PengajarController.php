@@ -20,8 +20,8 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = User::with('userDetail')->where('role','Guru')->get();
-        return view('backend.pengguna.pengajar.index', compact('pengajar'));
+        $pengajar = User::with('userDetail')->where('role','Pengajar')->get();
+        return view('backend.pengguna.Guru.index', compact('pengajar'));
     }
 
     /**
@@ -59,7 +59,7 @@ class PengajarController extends Controller
             $user->name             = $request->name;
             $user->email            = $request->email;
             $user->username         = strtolower($username).date("s");
-            $user->role             = 'Guru';
+            $user->role             = 'Pengajar';
             $user->status           = 'Aktif';
             $user->foto_profile     = $nama_img;
             $user->password         = bcrypt('12345678');
@@ -111,7 +111,7 @@ class PengajarController extends Controller
      */
     public function edit($id)
     {
-        $pengajar = User::with('userDetail')->where('role','Guru')->find($id);
+        $pengajar = User::with('userDetail')->where('role','Pengajar')->find($id);
         return view('backend.pengguna.pengajar.edit', compact('pengajar'));
     }
 

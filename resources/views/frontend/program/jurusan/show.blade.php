@@ -15,7 +15,10 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="about-page-img-holder">
-                        <img src="{{ asset('storage/images/jurusan/' . $jurusan->dataJurusan->image) }}" class="img-responsive"
+                        <img src="{{ asset('storage/images/jurusan/' . $jurusan->dataJurusan->image) }}"
+                         class="img-responsive"
+                         style="max-width: 200px; height: 200px;"
+
                             alt="about">
                     </div>
                 </div>

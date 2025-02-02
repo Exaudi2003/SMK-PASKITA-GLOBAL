@@ -15,8 +15,12 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="about-page-img-holder">
-                        <img src="{{ asset('storage/images/kegiatan/' . $kegiatan->image) }}" class="img-responsive"
-                            alt="about">
+                    <img src="{{ asset('storage/images/kegiatan/' . $kegiatan->image) }}" 
+     class="img-responsive" 
+     style="max-width: 400px; height: 400px;" 
+     alt="about">
+
+
                     </div>
                 </div>
             </div>

@@ -22,25 +22,25 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="footer-box">
-                    <h3>Informasi</h3>
-                    <ul class="corporate-address">
-                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:{{@$footer->telp}}"> {{@$footer->telp}}</a></li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i>{{@$footer->email}}</li>
-                    </ul>
-                    <div class="newsletter-area">
-                        <h3>Ingin mendapat berita terupdate ?</h3>
-                        <div class="input-group stylish-input-group">
-                            <input type="text" placeholder="Masukan email kamu disini" class="form-control">
-                            <span class="input-group-addon">
-                                    <button type="submit">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                    </button>
-                                </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="footer-box">
+        <h3>Kontak Kami</h3>
+        <ul class="corporate-address">
+            <li>
+                <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                Jl. Raya Bogor Jl. Bengrah KM.25 RT.004/RW.010, Cijantung, Kec. Pasar Rebo, Kota Jakarta Timur, DKI Jakarta 13750
+            </li>
+            <li>
+                <i class="fa fa-envelope" aria-hidden="true"></i> 
+                <a href="mailto:smkpaskitaglobal@gmail.com">smkpaskitaglobal@gmail.com</a>
+            </li>
+            <li>
+                <i class="fa fa-phone" aria-hidden="true"></i> 
+                <a href="tel:+6285947061515">0859-4706-1515</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-box">
                     <h3>Photos</h3>

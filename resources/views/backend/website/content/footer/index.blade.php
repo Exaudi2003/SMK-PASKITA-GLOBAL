@@ -96,7 +96,7 @@
 
                                     <div class="col-3">
                                         <div class="form-group">
-                                            <label for="basicInput">Logo Sekolah</label> <span class="text-danger">*</span>
+                                            <label for="basicInput">Logo Sekolah</label>
                                             <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" value=" {{old('logo')}} " />
                                             <small class="text-danger" style="font-size: 10px">Ukuran yang disarankan 168x41 dengan format .png.</small>
                                             @error('logo')

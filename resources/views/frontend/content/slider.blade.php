@@ -1,7 +1,10 @@
 <div class="bend niceties preview-1">
-    <div id="ensign-nivoslider-3" class="slides" style="max-height: 550px">
+    <div id="ensign-nivoslider-3" class="slides" style="max-height: 650px">
         @foreach ($slider as $key => $images)
-        <img src="{{asset('storage/images/slider/' .$images->image)}}" alt="slider" title="#slider-direction-{{$key+1}}" style="max-height: 550px"/>
+        <img src="{{asset('storage/images/slider/' .$images->image)}}"
+         alt="slider" 
+         title="#slider-direction-{{$key+1}}" 
+         style="max-height: 550px"/>
         @endforeach
     </div>
 
@@ -12,7 +15,6 @@
                     <div class="title1">{{$sliders->title}}</div>
                     <p> {{$sliders->desc}} </p>
                     <div class="slider-btn-area">
-                        <a href="{{url('ppdb')}}" class="default-big-btn">Daftar !</a>
                     </div>
                 </div>
             </div>

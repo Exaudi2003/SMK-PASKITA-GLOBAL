@@ -47,10 +47,10 @@ class UserSeeder extends Seeder
                 'password'  => bcrypt('exaudi123'),
             ],
             [
-                'name'      => 'Guru Matematika',
-                'username'  => 'guru_math',
+                'name'      => 'Guru Usaha Layanan Wisata',
+                'username'  => 'guru_ULW',
                 'email'     => 'guru@sch.id',
-                'role'      => 'Pengajar',
+                'role'      => 'pengajar',
                 'status'    => 'Aktif',
                 'password'  => bcrypt('PasswordGuru'),
             ]
