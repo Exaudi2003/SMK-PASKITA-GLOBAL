@@ -21,7 +21,7 @@ class PengajarController extends Controller
     public function index()
     {
         $pengajar = User::with('userDetail')->where('role','Pengajar')->get();
-        return view('backend.pengguna.Guru.index', compact('pengajar'));
+        return view('backend.pengguna.pengajar.index', compact('pengajar'));
     }
 
     /**
