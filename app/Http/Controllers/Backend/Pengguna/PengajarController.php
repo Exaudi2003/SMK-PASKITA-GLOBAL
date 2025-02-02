@@ -135,7 +135,7 @@ class PengajarController extends Controller
                 $image->storeAs($tujuan_upload,$nama_img);
             }
 
-           
+
             $user = User::find($id);
             $user->name             = $request->name;
             $user->email            = $request->email;
