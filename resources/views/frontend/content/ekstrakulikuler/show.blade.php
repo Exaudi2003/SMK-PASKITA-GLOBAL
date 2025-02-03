@@ -29,8 +29,6 @@
                             <div class="news-img-holder">
                                 <img src="{{ asset('storage/' . $ekstrakulikuler->image) }}" class="img-responsive" alt="{{ $ekstrakulikuler->name }}">
                                 <ul class="news-date1">
-                                    <li>27 Dec</li>
-                                    <li>2016</li>
                                 </ul>
                             </div>
                             <h2 class="title-default-left-bold-lowhight">

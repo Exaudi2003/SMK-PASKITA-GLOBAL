@@ -71,9 +71,11 @@
                                         <label for="basicInput">Mengajar</label> <span class="text-danger">*</span>
                                         <select name="mengajar" class="form-control @error('mengajar') is-invalid @enderror">
                                             <option value="">-- Pilih --</option>
-                                            <option value="Matematika">Perhotelan</option>
-                                            <option value="Tata Boga">Tata Boga</option>
-                                            <option value="Program Usaha Perjalanan Wisata">Program Usaha Perjalanan Wisata</option>
+                                            <option value="Perhotelan">Perhotelan</option>
+                                            <option value="Kuliner">Kuliner</option>
+                                            <option value="Desain Visual Grafis">Desain Visual Grafis</option>
+                                            <option value="Akuntansi">Akuntansi</option>
+                                            <option value="Usaha Layanan Wisata">Usaha Layanan Wisata</option>
                                         </select>
                                         @error('mengajar')
                                             <div class="invalid-feedback">

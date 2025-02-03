@@ -5,9 +5,9 @@
                 <div class="footer-box">
                     <a href="/">
                         @if (@$footer->logo == NULL)
-                            <img class="img-responsive" src="{{asset('Assets/Frontend/img/logo.jpeg')}}" alt="logo">
+                            <img class="img-responsive" src="{{asset('Assets/Frontend/img/logo.jpeg')}}" style="width: 90px; height: 90px;" alt="logo">
                         @else
-                            <img class="img-responsive" src="{{asset('storage/images/logo/' .$footer->logo)}}" alt="logo">
+                            <img class="img-responsive" src="{{asset('storage/images/logo/' .$footer->logo)}}" style="width: 100px; height: 100px;" alt="logo">
                         @endif
                     </a>
                     <div class="footer-about">
@@ -55,7 +55,7 @@
                             <a href="#"><img class="img-responsive" src="{{asset('Assets/Frontend/img/footer/3.jpg')}}" alt="flickr"></a>
                         </li>
                         <li>
-                            <a href="#"><img class="img-responsive" src="{{asset('Assets/Frontend/img/footer/4.jpg')}}" alt="flickr"></a>
+                            <a href="#"><img class="img-responsive" src="{{asset('Assets/Frontend/img/footer/4.png')}}" alt="flickr"></a>
                         </li>
                         <li>
                             <a href="#"><img class="img-responsive" src="{{asset('Assets/Frontend/img/footer/5.jpg')}}" alt="flickr"></a>

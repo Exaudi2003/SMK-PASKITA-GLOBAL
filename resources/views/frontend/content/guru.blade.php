@@ -15,14 +15,12 @@
                         <div class="lecturers-img-wrapper">
                             <a href="#"><img class="img-responsive"
                                     src="{{ asset('storage/images/profile/' . $pengajars->foto_profile) }}"
-                                    alt="team"></a>
+                                    alt="team"  ></a>
                         </div>
                         <div class="lecturers-content-wrapper">
                             <h3 class="item-title"><a href="#">{{ $pengajars->name }}</a></h3>
                             <span class="item-designation">{{ $pengajars->userDetail->mengajar }}</span>
                             <ul class="lecturers-social">
-                                <li><a href="{{ $pengajars->userDetail->website }}" target="_blank"><i
-                                            class="fa fa-globe" aria-hidden="true"></i></a></li>
                                 <li><a href="mailto:{{ $pengajars->email }}"><i class="fa fa-envelope-o"
                                             aria-hidden="true"></i></a></li>
                                 <li><a href="{{ 'https://www.linkedin.com/in', $pengajars->linkedln }}"

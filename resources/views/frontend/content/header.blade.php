@@ -6,11 +6,12 @@
                     <div class="header-top-left">
                         <div class="logo-area">
                             @if (@$footer->logo == null)
-                                <img class="img-responsive" src="{{ asset('Assets/Frontend/img/logo.JPEG') }}"
-                                    alt="logo" style="width: 100px; height: 90px;">
+                                <img class="img-responsive" src="{{ asset('Assets/Frontend/img/logo.jpeg') }}"
+                                    alt="logo" style="width: 70px; height: 70px;">
                             @else
                                 <img class="img-responsive"
-                                    src="{{ asset('storage/images/logo/' . $footer->logo . jpeg) }}" alt="logo">
+                                src="{{ asset('storage/images/logo/' . $footer->logo) }}" 
+                                style="width: 70px; height: 70px; "alt="logo">
                             @endif
                         </div>
                     </div>
@@ -85,7 +86,7 @@
 
                             <li><a href="#">Lainnya</a>
                                 <ul>
-                                    <li><a href=" {{ url('murid/perpustakaan') }} ">Perpustakaan</a></li>
+                                    <!-- <li><a href=" {{ url('murid/perpustakaan') }} ">Perpustakaan</a></li> -->
                                     <li><a href="{{ route('galeri') }}">Galeri Sekolah</a></li>
                                     <li class="has-child-menu"><a href="#">Alumni</a>
                                         <ul class="thired-level">
