@@ -106,7 +106,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="description">Deskripsi</label>
-                                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
+                                            <textarea name="description" id="description" class="form-control ckeditor @error('description') is-invalid @enderror"
                                                 rows="5" placeholder="Deskripsi Ekstrakulikuler">{!! old('description', $ekstrakulikuler->description) !!}</textarea>
                                             @error('description')
                                                 <div class="invalid-feedback">

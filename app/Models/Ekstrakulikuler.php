@@ -26,8 +26,7 @@ class Ekstrakulikuler extends Model
     }
 
     public function galeriEkstrakulikuler()
-{
-    return $this->hasMany(GaleriEkstrakulikuler::class, 'ekstrakulikuler_id');
-}
-
+    {
+        return $this->hasMany(GaleriEkstrakulikuler::class, 'ekstrakulikuler_id');
+    }
 }
