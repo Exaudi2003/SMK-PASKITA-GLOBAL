@@ -15,7 +15,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="news-box">
                                     <div class="news-img-holder">
-                                        <img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" class="img-responsive" alt="research">
+                                        <img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" class="img-responsive"  style="width: 500px; height: 500px;" alt="research">
                                         <ul class="news-date2">
                                             <li>{{Carbon\Carbon::parse($beritas->created_at)->format('d M')}}</li>
                                             <li>{{Carbon\Carbon::parse($beritas->created_at)->format('Y')}}</li>
@@ -31,7 +31,7 @@
                             </div>
                         @endforeach
                         @if ($berita == NULL)
-                            <img src="{{asset('Assets/Frontend/img/empty.svg')}}" class="img-responsive" style="object-fit:cover; margin-top:5% !important; display: block; margin: 0 auto;">
+                            <img src="{{asset('Assets/Frontend/img/empty.svg')}}" class="img-responsive" style="width: 500px; height: 500px;">
                         @endif
 
                         {{ $berita->links('frontend.content.paginate') }}
@@ -58,7 +58,8 @@
                                         @foreach ($berita as $beritas)
                                             <li>
                                                 <div class="latest-research-img">
-                                                    <a href="{{route('detail.berita', $beritas->slug)}}"><img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" class="img-responsive" alt="skilled"></a>
+                                                    <a href="{{route('detail.berita', $beritas->slug)}}"><img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" 
+                                                    class="img-responsive" alt="skilled" ></a>
                                                 </div>
                                                 <div class="latest-research-content">
                                                     <h6>{{Carbon\Carbon::parse($beritas->created_at)->format('d M, Y')}}</h6>

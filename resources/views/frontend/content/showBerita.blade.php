@@ -56,7 +56,8 @@
                                         @foreach ($beritaOther as $beritas)
                                             <li>
                                                 <div class="latest-research-img">
-                                                    <a href="{{route('detail.berita', $beritas->slug)}}"><img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" class="img-responsive" alt="skilled"></a>
+                                                    <a href="{{route('detail.berita', $beritas->slug)}}"><img src="{{asset('storage/images/berita/' .$beritas->thumbnail)}}" 
+                                                    class="img-responsive" alt="skilled"  ></a>
                                                 </div>
                                                 <div class="latest-research-content">
                                                     <h6>{{Carbon\Carbon::parse($beritas->created_at)->format('d M, Y')}}</h6>

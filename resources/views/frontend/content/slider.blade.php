@@ -4,7 +4,7 @@
         <img src="{{asset('storage/images/slider/' .$images->image)}}"
          alt="slider" 
          title="#slider-direction-{{$key+1}}" 
-         style="max-height: 550px"/>
+         style="width: 600px; height: 600px;"/>
         @endforeach
     </div>
 
