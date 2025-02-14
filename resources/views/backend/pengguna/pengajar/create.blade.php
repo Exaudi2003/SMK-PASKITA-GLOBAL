@@ -87,7 +87,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="basicInput">NIP</label> <span class="text-danger">*</span>
+                                        <label for="basicInput">NIK</label> <span class="text-danger">*</span>
                                         <input type="number" class="form-control @error('nip') is-invalid @enderror" name="nip" value=" {{old('nip')}} " placeholder="NIP" />
                                         @error('nip')
                                             <div class="invalid-feedback">
@@ -180,7 +180,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                              
+
                             </div>
                             <button class="btn btn-primary" type="submit">Tambah</button>
                             <a href="{{route('backend-pengguna-pengajar.index')}}" class="btn btn-warning">Batal</a>
