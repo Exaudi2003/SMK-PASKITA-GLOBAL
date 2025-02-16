@@ -26,7 +26,7 @@
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2> Kegiatan</h2>
+                    <h2>Lowongan Kerja</h2>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header header-bottom">
-                        <h4>Tambah Kegiatan</h4>
+                        <h4>Tambah Lowongan Kerja</h4>
                     </div>
                     <div class="card-body">
                         <form action=" {{route('backend-kegiatan.store')}} " method="post" enctype="multipart/form-data">
@@ -44,8 +44,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="basicInput">Nama Kegiatan</label> <span class="text-danger">*</span>
-                                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama Kegiatan" />
+                                        <label for="basicInput">Nama Pekerjaan</label> <span class="text-danger">*</span>
+                                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama Pekerjaan" />
                                         @error('nama')
                                             <div class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="basicInput">Content</label> <span class="text-danger">*</span>
+                                        <label for="basicInput">Deskripsi Pekerjaan</label> <span class="text-danger">*</span>
                                         <textarea name="content" class="form-control ckeditor  @error('content') is-invalid @enderror" cols="30" rows="10"></textarea>
                                         @error('content')
                                             <div class="invalid-feedback">
@@ -78,7 +78,7 @@
                                 </div>
 
                             </div>
-                            <button class="btn btn-primary" type="submit">Update</button>
+                            <button class="btn btn-primary" type="submit">Tambah</button>
                             <a href="{{route('backend-kegiatan.index')}}" class="btn btn-warning">Batal</a>
                         </form>
                     </div>

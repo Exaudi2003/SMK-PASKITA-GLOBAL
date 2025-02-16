@@ -59,7 +59,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="has-child-menu"><a href="#">Kegiatan</a>
+                                    <li class="has-child-menu"><a href="#">Lowongan Kerja</a>
                                         <ul class="thired-level">
                                             @foreach ($kegiatanM as $kegiatans)
                                                 <li><a
@@ -128,7 +128,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="has-child-menu"><a href="#">Kegiatan</a>
+                                    <li class="has-child-menu"><a href="#">Lowongan Kerja</a>
                                         <ul class="thired-level">
                                             @foreach ($kegiatanM as $kegiatans)
                                                 <li><a
