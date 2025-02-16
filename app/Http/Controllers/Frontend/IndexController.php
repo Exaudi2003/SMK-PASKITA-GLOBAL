@@ -34,7 +34,8 @@ class IndexController extends Controller
         $galeriSekolah = GaleriSekolah::get();
         $event = Events::where('is_active', '0')->orderBy('created_at', 'desc')->get();
         $footer = Footer::first();
-        return view('frontend.welcome', compact('jurusanM', 'kegiatanM', 'slider', 'about', 'video', 'pengajar', 'berita', 'event', 'footer', 'ekstrakulikulerM', 'galeriSekolah'));
+        $title = 'Selamat Datang di SMK Paskita Global';
+        return view('frontend.welcome', compact('jurusanM', 'kegiatanM', 'slider', 'about', 'video', 'pengajar', 'berita', 'event', 'footer', 'ekstrakulikulerM', 'galeriSekolah', 'title'));
     }
 
 

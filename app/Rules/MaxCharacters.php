@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class maxCharacters implements Rule
+class MaxCharacters implements Rule
 {
     protected $max;
     /**
