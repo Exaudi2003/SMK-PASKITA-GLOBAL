@@ -1,7 +1,7 @@
     @extends('layouts.backend.app')
 
     @section('title')
-        Kegiatan
+        Lowongan Pekerjaaan
     @endsection
 
     @section('content')
@@ -26,7 +26,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2> Kegiatan</h2>
+                        <h2>Nama Pekerjaan</h2>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header border-bottom">
-                                        <h4 class="card-title">Kegiatan  <a href=" {{route('backend-kegiatan.create')}} " class="btn btn-primary">Tambah</a></h4>
+                                        <h4 class="card-title">Lowongan Pekerjaaan  <a href=" {{route('backend-kegiatan.create')}} " class="btn btn-primary">Tambah</a></h4>
                                     </div>
                                     <div class="card-datatable">
                                         <table class="dt-responsive table">
